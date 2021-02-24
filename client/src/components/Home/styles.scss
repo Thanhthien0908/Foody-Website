@@ -1,0 +1,92 @@
+.bg-banner{
+    background-image: url("./assets/bg-Banner.svg");
+    background-repeat: no-repeat;
+    height: 70vh;
+}
+nav.container.navbar.navbar-expand-md.navbar-light.bg-light{
+    background: none !important;
+    & .nav-item{
+        font-weight: bold;
+    }
+    & .nav-item:hover{
+        border-bottom: 2px solid red;
+    }
+    & .navbar-text{
+        font-weight: bold;
+        img{
+            cursor: pointer;
+        }
+    }
+}
+.introduce{
+    // text-align: center;
+    margin-top: 50px;
+    & img{
+        // width: 200px;
+        // height: 70px;
+        margin-left: 50%;
+        transform: translate(-50%, 0%);
+    }
+    &__title{
+        text-transform: uppercase;
+        font-style: italic;
+        font-weight: bold;
+        text-align: center;
+    }
+    &__content{
+        margin-top: 40px;
+        font-style: italic;
+    }
+}
+.maxim{
+    margin-top: 50px;
+   
+    &__title{
+        text-transform: uppercase;
+        margin-bottom: 50px;
+        font-style: italic;
+        font-weight: bold;
+        text-align: center;
+    }
+    .bg-maxim-item{
+        background-image: url("./assets/bg-maxim-item.svg");
+        background-repeat: no-repeat;
+        width: 255px;
+        height: 165px;
+        padding-right: 60px;
+    }
+    .row-top{
+        margin-bottom: 50px;
+    }
+    .maxim-item{
+        margin-top: 15px;
+        margin-bottom: 15px;
+        &__index{
+            color: white;
+            font-size: 30px;
+            font-style: italic;
+        }
+        &__description{
+            font-size: 15px;
+            margin-left: 0px;
+            color: white;
+            &__note{
+                margin-top: -10px;
+            }
+        }
+    }
+}
+.address{
+    &__title{
+        text-transform: uppercase;
+        margin-bottom: 50px;
+        font-style: italic;
+        font-weight: bold;
+        text-align: center;
+    }
+    &__content{
+        color: red;
+        font-weight: bold;
+        font-style: italic;
+    }
+}

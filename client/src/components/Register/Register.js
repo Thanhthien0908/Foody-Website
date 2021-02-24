@@ -1,14 +1,23 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './styles.scss'
 import iconUser from './assets/icon-user.svg'
 import iconUnlock from './assets/icon-unlock.svg'
 import iconPhone from './assets/icon-phone.svg'
 import iconAddress from './assets/icon-address.svg'
+import AOS from "aos";
+import "aos/dist/aos.css";
 const Register = () => {
+    useEffect(() => {
+        AOS.init({
+        offset: 200,
+        delay: 0,
+        duration: 1000,
+        });
+        }, []);
     return (
         <div className="screen-register">
             <div className="screen-register__title">Foody Login</div>
-            <div className="screen-register__user">
+            <div className="screen-register__user" data-aos="fade-right">
                 <table className="screen-register__user__group">
                     <tr>
                         <td><input className="screen-register__user__input" type="text" placeholder="Tên đăng nhập"/></td>
@@ -16,7 +25,7 @@ const Register = () => {
                     </tr>
                 </table>
             </div>
-            <div className="screen-register__lock">
+            <div className="screen-register__lock" data-aos="fade-left">
                 <table className="screen-register__lock__group">
                     <tr>
                         <td><input className="screen-register__lock__input" type="password" placeholder="Mật Khẩu"/></td>
@@ -24,7 +33,7 @@ const Register = () => {
                     </tr>
                 </table>
             </div>
-            <div className="screen-register__lock">
+            <div className="screen-register__lock" data-aos="fade-right">
                 <table className="screen-register__lock__group">
                     <tr>
                         <td><input className="screen-register__lock__input" type="password" placeholder="Nhập Lại mật khẩu"/></td>
@@ -32,7 +41,7 @@ const Register = () => {
                     </tr>
                 </table>
             </div>
-            <div className="screen-register__lock">
+            <div className="screen-register__lock" data-aos="fade-left">
                 <table className="screen-register__lock__group">
                     <tr>
                         <td><input className="screen-register__lock__input" type="text" placeholder="Số điện thoại"/></td>
@@ -40,7 +49,7 @@ const Register = () => {
                     </tr>
                 </table>
             </div>
-            <div className="screen-register__lock">
+            <div className="screen-register__lock" data-aos="fade-right">
                 <table className="screen-register__lock__group">
                     <tr>
                         <td><input className="screen-register__lock__input" type="text" placeholder="Địa chỉ"/></td>
