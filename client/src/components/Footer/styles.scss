@@ -1,0 +1,23 @@
+.footer{
+    background-color: #FFF3E0;
+    margin-top: 50px;
+    padding-top: 50px;
+    &__item{
+        padding-left: 50px;
+        
+    }
+    a{
+        text-decoration: none;
+    }
+    img{
+        margin-right: 15px;
+        
+    }
+}
+.copyright{
+    background-color: #FFE7C2;
+    text-align: center;
+    bottom: 0;
+    font-style: italic;
+    font-weight: bold;
+}

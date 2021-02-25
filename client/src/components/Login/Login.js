@@ -1,5 +1,5 @@
 import React,{useEffect} from 'react';
-import './styles.scss'
+import './style.scss'
 import iconUser from './assets/icon-user.svg'
 import iconUnlock from './assets/icon-unlock.svg'
 import AOS from "aos";

@@ -1,0 +1,23 @@
+select{
+    outline: none;
+    border:none;
+}
+.order-item{
+    &__name{
+        font-weight: bold;
+        text-align: center;
+    }
+    &__price{
+        text-align: center;
+        font-size: 30px;
+        color: red;
+    }
+    &__btn{
+        outline: none;
+        border:none;
+        background-color: #FFD600;
+        padding: 10px;
+        border-radius: 5px;
+        font-weight: bold;
+    }
+}

@@ -1,10 +1,10 @@
-import React,{useState,useEffect} from 'react';
-import PropTypes from 'prop-types';
+import React,{useEffect} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.scss';
 import AOS from "aos";
 import "aos/dist/aos.css";
-import iconAvatar from './assets/img-avatar.svg';
+import NavbarG from '../NavbarG/NavbarG';
+import Footer from '../Footer/Footer';
 import Logo from './assets/logo-foody.svg';
 import imgLogo from './assets/img-logo.svg';
 import imgMaxim from './assets/img-maxim.svg';
@@ -13,11 +13,8 @@ import iconStory from './assets/icon-story.svg';
 import iconServices from './assets/icon-services.svg';
 import iconProtect from './assets/icon-protec.svg';
 import iconTime from './assets/icon-time.svg';
-import {Navbar,NavbarBrand,NavbarToggler,Collapse,Nav,NavItem,NavLink,NavbarText} from 'reactstrap';
-const Home = (props) => {
-    const [isOpen, setIsOpen] = useState(false);
 
-    const toggle = () => setIsOpen(!isOpen);
+const Home = (props) => {
 
     useEffect(() => {
         AOS.init({
@@ -28,26 +25,7 @@ const Home = (props) => {
         }, []);
     return (<>
         <div className="bg-banner">
-            <div className="navbar">
-            <Navbar color="light" light expand="md" className="container">
-                <NavbarBrand href="/"><img src={Logo} alt="logo"/></NavbarBrand>
-                <NavbarToggler onClick={toggle} />
-                <Collapse isOpen={isOpen} navbar>
-                <Nav className="mr-auto" navbar>
-                    <NavItem>
-                    <NavLink href="/components/">Giới Thiệu</NavLink>
-                    </NavItem>
-                    <NavItem>
-                    <NavLink href="#">Đặt Món</NavLink>
-                    </NavItem>  
-                    <NavItem>
-                    <NavLink href="#">Giỏ Hàng</NavLink>
-                    </NavItem>
-                </Nav>
-                <NavbarText>Nguyễn Thanh Thiên <img src={iconAvatar} alt="avatar"/> </NavbarText>
-                </Collapse>
-            </Navbar>
-            </div>
+            <NavbarG />
         </div>
         <div className="introduce">
             <img src={Logo} alt="logo"/>
@@ -155,6 +133,7 @@ const Home = (props) => {
                 </div>
             </div>
         </div>
+        <Footer />
         </>
     );
 };

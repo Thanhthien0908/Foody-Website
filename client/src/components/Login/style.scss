@@ -12,6 +12,9 @@
         font-size: 80px;
         text-transform: uppercase;
     }
+    td{
+        padding: 10px 15px;
+    }
     &__user{
         &__input{
             background: none;
@@ -24,10 +27,8 @@
             margin: auto;
             margin-top: 50px;
             border-radius: 50px;
-            padding: 10px 15px;
         }
         &__icon{
-            padding-top: 5px;
             cursor: pointer;
         }
     }
@@ -43,10 +44,8 @@
             margin: auto;
             margin-top: 20px;
             border-radius: 50px;
-            padding: 10px 15px;
         }
         &__icon{
-            padding-top: 5px;
             cursor: pointer;
         }
     }

@@ -16,7 +16,7 @@ const Register = () => {
         }, []);
     return (
         <div className="screen-register">
-            <div className="screen-register__title">Foody Login</div>
+            <div className="screen-register__title">Foody Register</div>
             <div className="screen-register__user" data-aos="fade-right">
                 <table className="screen-register__user__group">
                     <tr>
