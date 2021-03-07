@@ -4,6 +4,8 @@ import './styles.scss';
 export default function TableStoreCard() {
   return (
       <div className="table-responsive">
+        <h1><center>Chi Tiết Giỏ Hàng</center></h1>
+        <br />
         <table className="table product-table">
           <thead>
             <tr>
@@ -18,7 +20,7 @@ export default function TableStoreCard() {
           <tbody>
           <tr>
             <th scope="row">
-              <img src={orderItem} alt="item.product.name" />
+              <img src="https://dscnnwjxnwl3f.cloudfront.net/media/catalog/product/cache/584039753b87a8d227764e04fc461e3e/h/a/hawaii_burger_1_2.jpg" alt="item.product.name" />
             </th>
             <td>
               <h5>
@@ -50,7 +52,7 @@ export default function TableStoreCard() {
           </tr>    
           <tr>
             <th scope="row">
-              <img src={orderItem} alt="item.product.name" />
+              <img src="https://dscnnwjxnwl3f.cloudfront.net/media/catalog/product/cache/584039753b87a8d227764e04fc461e3e/h/a/hawaii_burger_1_2.jpg" alt="item.product.name" />
             </th>
             <td>
               <h5>
@@ -82,7 +84,7 @@ export default function TableStoreCard() {
           </tr>    
           <tr>
             <th scope="row">
-              <img src={orderItem} alt="item.product.name" />
+              <img src="https://dscnnwjxnwl3f.cloudfront.net/media/catalog/product/cache/584039753b87a8d227764e04fc461e3e/h/a/hawaii_burger_1_2.jpg" alt="item.product.name" />
             </th>
             <td>
               <h5>
@@ -127,7 +129,7 @@ export default function TableStoreCard() {
             </td>
             <td>
               <h4>
-              <strong>1000.000</strong>
+              <strong>1.000.000đ</strong>
               </h4>
             </td>
             <td colSpan={3}>
