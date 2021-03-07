@@ -3,7 +3,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.scss';
 import AOS from "aos";
 import "aos/dist/aos.css";
-import NavbarG from '../NavbarG/NavbarG';
 import Footer from '../Footer/Footer';
 import Logo from './assets/logo-foody.svg';
 import imgLogo from './assets/img-logo.svg';
@@ -13,7 +12,9 @@ import iconStory from './assets/icon-story.svg';
 import iconServices from './assets/icon-services.svg';
 import iconProtect from './assets/icon-protec.svg';
 import iconTime from './assets/icon-time.svg';
-
+import Carousel from 'react-bootstrap/Carousel'
+import imgBanner1 from './assets/banner_web_1.svg';
+import imgBanner2 from './assets/banner_web_2.svg';
 const Home = (props) => {
 
     useEffect(() => {
@@ -24,9 +25,29 @@ const Home = (props) => {
         });
         }, []);
     return (<>
-        <div className="bg-banner">
-            <NavbarG />
-        </div>
+        <Carousel>
+            <Carousel.Item interval={1000}>
+                <img
+                className="d-block w-100"
+                src={imgBanner2}
+                alt="First slide"
+                />
+            </Carousel.Item>
+            <Carousel.Item interval={500}>
+                <img
+                className="d-block w-100"
+                src={imgBanner1}
+                alt="Second slide"
+                />
+            </Carousel.Item>
+            <Carousel.Item>
+                <img
+                className="d-block w-100"
+                src={imgBanner2}
+                alt="Third slide"
+                />
+            </Carousel.Item>
+        </Carousel>
         <div className="introduce">
             <img src={Logo} alt="logo"/>
             <h1 className="introduce__title">Giới thiệu về chúng tôi</h1>
