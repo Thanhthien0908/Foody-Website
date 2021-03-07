@@ -38,13 +38,13 @@ const Footer = () => {
                         <p><a href="#">Chính sách giao hàng</a></p>
                         <p><a href="#">Liên hệ</a></p>
                     </div>
-                    <div className="col" data-aos="fade-left">
+                    <divz data-aos="fade-left">
                         <p>Theo dõi chúng tôi</p>
                         <a href="https://www.facebook.com/"><img src={iconFaceBook} alt="icon-fa"/></a>
                         <a href="https://www.instagram.com/"><img src={iconInstagram} alt="icon-insta"/></a>
                         <a href="https://twitter.com/"><img src={iconTwitter} alt="img-twitter"/></a>
                         <a href="https://www.youtube.com/"><img src={iconYoutube} alt="img-youtube"/></a>
-                    </div>
+                    </divz>
                 </div>
             </div>
         </div>

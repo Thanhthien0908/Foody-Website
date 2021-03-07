@@ -1,25 +1,29 @@
 import React,{useState} from 'react';
-import Home from './components/Home/Home';
-import Login from './components/Login/Login';
-import Order from './components/Order/Order';
-import Register from './components/Register/Register';
-import StoreCard from './components/StoreCard/StoreCard';
-import logo from './components/Home/assets/logo-foody.svg';
-import iconAvatar from './components/Home/assets/img-avatar.svg';
+import Home from '../Home/Home';
+import Login from '../Login/Login';
+import Order from '../Order/Order';
+import Register from '../Register/Register';
+import StoreCard from '../StoreCard/StoreCard';
+import logo from '../Home/assets/logo-foody.svg';
+import iconAvatar from '../Home/assets/img-avatar.svg';
 import './App.scss';
 import {
   BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
-import {Navbar,NavbarBrand,NavbarToggler,Collapse,Nav,NavItem,NavLink,NavbarText} from 'reactstrap';
+import {Navbar,NavbarBrand,NavbarToggler,Collapse,Nav,NavItem,NavLink,NavbarText,UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+} from 'reactstrap';
 function App() {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
   return (
     <Router>
-      <div>
+      <div className="menu">
       <Navbar color="light" light expand="md" className="container">
           <NavbarBrand href="/"><img src={logo} alt="logo"/></NavbarBrand>
           <NavbarToggler onClick={toggle} />
@@ -35,10 +39,21 @@ function App() {
               <NavLink href="/store">Giỏ Hàng</NavLink>
               </NavItem>
           </Nav>
-          <NavbarText>Nguyễn Thanh Thiên <img src={iconAvatar} alt="avatar"/></NavbarText>
+          <NavbarText>
+            <UncontrolledDropdown className="dropdown-lang">
+              <DropdownToggle nav caret>
+                  <span>Nguyễn Thanh Thiên <img src={iconAvatar} alt="avatar"/></span>
+              </DropdownToggle>
+              <DropdownMenu right>
+                <DropdownItem>
+                  Đăng Xuất
+                </DropdownItem>
+              </DropdownMenu>
+            </UncontrolledDropdown>
+          </NavbarText>
           </Collapse>
       </Navbar>
-
+      </div>
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
@@ -58,7 +73,7 @@ function App() {
             <Home />
           </Route>
         </Switch>
-      </div>
+      
     </Router>
   );
 }
