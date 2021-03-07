@@ -1,0 +1,19 @@
+.nav-menu{
+  background-color: #262B40;
+  height: 100vh;
+  padding-top : 20px;
+  color: white;
+  & ul{
+    list-style-type: none;
+  }
+  & li{
+    margin-top: 20px;
+  }
+  & li a{
+    text-decoration: none;
+    color: white;
+  }
+  & hr{
+    border: 1px solid white;
+  }
+}
