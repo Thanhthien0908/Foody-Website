@@ -2,6 +2,7 @@
   background-color: #262B40;
   height: 100vh;
   padding-top : 20px;
+  position: fixed !important;
   color: white;
   & ul{
     list-style-type: none;
@@ -17,3 +18,8 @@
     border: 1px solid white;
   }
 }
+.content{
+  left: 25%;
+}
+
+

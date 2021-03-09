@@ -14,10 +14,17 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import OverView from '../OverView';
+import AccAdmin from '../AccAdmin';
+import AccUser from '../AccUser';
+import DanhMucDoAn from '../DanhMucDoAn';
+import DanhMucDoUong from '../DanhMucDoUong';
+import DanhMucCombo from '../DanhMucCombo';
+import QuanLyKho from '../QuanLyKho';
 function App() {
   return (
     <Router>
-      <div className="row">
+      <div className="row body">
         <div className="col-3 nav-menu">
         <nav>
           <ul>
@@ -32,23 +39,23 @@ function App() {
             <li>
               <img src={iconAcc} alt="iconAcc"/> Quản lý tài khoản <img src={iconDropDown} alt="iconDrop"/>
                 <ul>
-                  <li><Link to="/">Tài khoản admin</Link></li>
-                  <li><Link to="/">Tài khoản user</Link></li>
+                  <li><Link to="/tai-khoan-admin">Tài khoản admin</Link></li>
+                  <li><Link to="/tai-khoan-user">Tài khoản user</Link></li>
                 </ul>
             </li>
             <li>
               <img src={iconBookMarks} alt="iconDanhMuc"/> Quản lý danh mục <img src={iconDropDown} alt="iconDrop"/>
                 <ul>
-                  <li><Link to="/">Đồ ăn</Link></li>
-                  <li><Link to="/">Đồ uống</Link></li>
-                  <li><Link to="/">Combo</Link></li>
+                  <li><Link to="/danh-muc-do-an">Đồ ăn</Link></li>
+                  <li><Link to="/danh-muc-do-uong">Đồ uống</Link></li>
+                  <li><Link to="/danh-muc-combo">Combo</Link></li>
                 </ul>
             </li>
             <li>
-              <Link to="/about"><img src={iconStore} alt="iconStore"/> Quản lý Kho</Link>
+              <Link to="/quan-ly-kho"><img src={iconStore} alt="iconStore"/> Quản lý Kho</Link>
             </li>
             <li>
-              <Link to="/users"><img src={iconLogout} alt="iconLogout"/> Đăng xuất</Link>
+              <Link to="#"><img src={iconLogout} alt="iconLogout"/> Đăng xuất</Link>
             </li>
           </ul>
         </nav>
@@ -56,33 +63,34 @@ function App() {
 
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
-        <div className="col-9">
+        <div className="col-9 content">
           <Switch>
-            <Route path="/about">
-              <About />
+            <Route path="/tai-khoan-admin">
+              <AccAdmin />
             </Route>
-            <Route path="/users">
-              <Users />
+            <Route path="/tai-khoan-user">
+              <AccUser />
+            </Route>
+            <Route path="/danh-muc-do-an">
+              <DanhMucDoAn />
+            </Route>
+            <Route path="/danh-muc-do-uong">
+              <DanhMucDoUong />
+            </Route>
+            <Route path="/danh-muc-combo">
+              <DanhMucCombo />
+            </Route>
+            <Route path="/quan-ly-kho">
+              <QuanLyKho />
             </Route>
             <Route path="/">
-              <Home />
+              <OverView />
             </Route>
           </Switch>
         </div>
       </div>
     </Router>
   );
-}
-function Home() {
-  return <h2>Home</h2>;
-}
-
-function About() {
-  return <h2>About</h2>;
-}
-
-function Users() {
-  return <h2>Users</h2>;
 }
 
 export default App;
