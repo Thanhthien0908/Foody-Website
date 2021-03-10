@@ -1,10 +1,41 @@
-import React from 'react';
+import React,{useState} from 'react';
 import './styles.scss';
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
+import Col from 'react-bootstrap/Col'
 const DanhMucCombo = () => {
+    const [openForm, setopenForm] = useState(false);
+    const showForm = () =>{
+        setopenForm(!openForm);
+        console.log(openForm);
+    }
     return (
         <div className="table-responsive">
             <h1>Quản lý danh mục Combo</h1>
-            <button className="btn btn-success">Thêm Combo</button>
+            <button className="btn btn-success" onClick={showForm}>Thêm Combo</button>
+            <Form className={openForm ? "openForm" : "hideForm"}>
+                <Form.Row>
+                    <Form.Group as={Col} controlId="formGridEmail">
+                    <Form.Label>Tên Combo</Form.Label>
+                    <Form.Control placeholder="Enter Name" />
+                    </Form.Group>
+                    <Form.Group as={Col} controlId="formGridPassword">
+                    <Form.Label>Hình ảnh</Form.Label>
+                    <Form.Control placeholder="img" />
+                    </Form.Group>
+                </Form.Row>
+                <Form.Group controlId="formGridPhone">
+                    <Form.Label>Giá</Form.Label>
+                    <Form.Control placeholder="Price" />
+                </Form.Group>
+                <Form.Group controlId="formGridAddress2">
+                    <Form.Label>Loại</Form.Label>
+                    <Form.Control placeholder="Type" />
+                </Form.Group>
+                <Button variant="danger" type="submit">
+                    Lưu
+                </Button>
+                </Form>
             <table className="table product-table">
             <thead>
                 <tr>
