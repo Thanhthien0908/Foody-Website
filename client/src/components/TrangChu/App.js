@@ -10,7 +10,8 @@ import './App.scss';
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
+  useHistory
 } from "react-router-dom";
 import {Navbar,NavbarBrand,NavbarToggler,Collapse,Nav,NavItem,NavLink,NavbarText,UncontrolledDropdown,
   DropdownToggle,
@@ -18,6 +19,11 @@ import {Navbar,NavbarBrand,NavbarToggler,Collapse,Nav,NavItem,NavLink,NavbarText
   DropdownItem,
 } from 'reactstrap';
 function App() {
+  let history = useHistory();
+  const onLogout = () => {
+    localStorage.removeItem("accessToken");
+    history.replace("/login");
+  }
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
@@ -45,7 +51,7 @@ function App() {
                   <span>Nguyễn Thanh Thiên <img src={iconAvatar} alt="avatar"/></span>
               </DropdownToggle>
               <DropdownMenu right>
-                <DropdownItem>
+                <DropdownItem onClick={onLogout}>
                   Đăng Xuất
                 </DropdownItem>
               </DropdownMenu>
