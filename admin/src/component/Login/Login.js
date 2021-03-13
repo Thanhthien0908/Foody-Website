@@ -4,6 +4,7 @@ import iconUser from './assets/icon-user.svg'
 import iconUnlock from './assets/icon-unlock.svg'
 import AOS from "aos";
 import "aos/dist/aos.css";
+import {Modal} from 'antd';
 import {Redirect, useHistory} from 'react-router-dom';
 
 const Login = () => {
@@ -14,6 +15,11 @@ const Login = () => {
         if(userName === "thiennt" && passWord === "123456"){
             localStorage.setItem("accessToken", true);
             history.replace("/"); 
+        }else{
+            Modal.error({
+                title: 'Đăng nhập thất bại !',
+                content: 'Tên tài khoản hoặc mật khẩu không đúng ? ',
+            });
         }
     }
     const moveRegister = () => {

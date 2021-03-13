@@ -4,6 +4,7 @@ import './index.css';
 import App from './component/TrangChu/App';
 // import Login from './component/Login/Login';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'antd/dist/antd.css';
 import reportWebVitals from './reportWebVitals';
 import AppRouter from './AppRouter';
 
