@@ -1,7 +1,13 @@
 import React from 'react';
 import orderItem from '../TabsAll/assets/order-item.svg';
 import './styles.scss';
+import {useHistory} from 'react-router-dom';
 export default function TableStoreCard() {
+  let history = useHistory();
+    const moveOrder = () => {
+        history.replace("/order")
+    }
+  
   return (
       <div className="table-responsive">
         <h1><center>Chi Tiết Giỏ Hàng</center></h1>
@@ -117,7 +123,7 @@ export default function TableStoreCard() {
           
           <tr>
             <td>
-              <button type="button" className="btn btn-warning"> &#8249; Tiếp tục đặt món
+              <button type="button" className="btn btn-warning" onClick={moveOrder}> &#8249; Tiếp tục đặt món
                   <i className="fa fa-angle-right right" />
                 </button>
             </td>
