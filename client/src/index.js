@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
+import 'antd/dist/antd.css';
 import AppRouter from './AppRouter';
 // import App from './components/TrangChu/App';
 import reportWebVitals from './reportWebVitals';
