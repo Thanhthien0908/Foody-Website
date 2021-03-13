@@ -12,7 +12,8 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  useHistory
 } from "react-router-dom";
 import OverView from '../OverView';
 import AccAdmin from '../AccAdmin';
@@ -22,6 +23,11 @@ import DanhMucDoUong from '../DanhMucDoUong';
 import DanhMucCombo from '../DanhMucCombo';
 import QuanLyKho from '../QuanLyKho';
 function App() {
+  let history = useHistory();
+  const onLogout = () => {
+    localStorage.removeItem("accessToken");
+    history.replace("/login");
+  }
   return (
     <Router>
       <div className="row body">
@@ -55,7 +61,7 @@ function App() {
               <Link to="/quan-ly-kho"><img src={iconStore} alt="iconStore"/> Quản lý Kho</Link>
             </li>
             <li>
-              <Link to="#"><img src={iconLogout} alt="iconLogout"/> Đăng xuất</Link>
+              <Link to="#" onClick={onLogout}><img src={iconLogout} alt="iconLogout"/> Đăng xuất</Link>
             </li>
           </ul>
         </nav>

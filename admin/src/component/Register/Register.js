@@ -6,7 +6,12 @@ import iconPhone from './assets/icon-phone.svg'
 import iconAddress from './assets/icon-address.svg'
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { useHistory } from 'react-router';
 const Register = () => {
+    let history = useHistory();
+    const moveLogin = () => {
+        history.replace("/login")
+    }
     useEffect(() => {
         AOS.init({
         offset: 200,
@@ -60,8 +65,8 @@ const Register = () => {
             <div className="screen-register__button">
                 <table className="screen-register__button__group">
                     <tr>
-                        <td><button className="screen-register__button__login">Login</button></td>
-                        <td><button className="screen-register__button__register">Register</button></td>
+                        <td><button className="screen-register__button__login" onClick={moveLogin}>Login</button></td>
+                        <td><button className="screen-register__button__register">Save</button></td>
                     </tr>
                 </table>
             </div>
