@@ -7,9 +7,12 @@ import AppRouter from './AppRouter';
 // import App from './components/TrangChu/App';
 import reportWebVitals from './reportWebVitals';
 
+
+
 ReactDOM.render(
   <React.StrictMode>
     <AppRouter />
+    
   </React.StrictMode>,
   document.getElementById('root')
 );
