@@ -14,3 +14,15 @@
 .hideForm{
     display: none;
 }
+.inputForm{
+    outline: none;
+    border: 0.5px solid gray;
+    border-radius: 5px;
+    width: 300px;
+}
+.btn-save{
+    margin-top: 20px;
+}
+.label-input{
+    font-weight: bold;
+}
