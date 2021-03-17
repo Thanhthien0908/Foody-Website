@@ -6,13 +6,15 @@ import Register from '../Register/Register';
 import StoreCard from '../StoreCard/StoreCard';
 import logo from '../Home/assets/logo-foody.svg';
 import iconAvatar from '../Home/assets/img-avatar.svg';
+import MessengerCustomerChat from 'react-messenger-customer-chat';
 import './App.scss';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  useHistory,
-} from "react-router-dom";
+  Link,
+  useHistory
+} from 'react-router-dom';
 import {Navbar,NavbarBrand,NavbarToggler,Collapse,Nav,NavItem,NavLink,NavbarText,UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
@@ -27,7 +29,7 @@ function App() {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
-  return (
+  return (<>
     <Router>
       <div className="menu">
       <Navbar color="light" light expand="md" className="container">
@@ -36,13 +38,13 @@ function App() {
           <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
               <NavItem>
-              <NavLink href="/">Giới Thiệu</NavLink>
+              <Link to="/">Giới Thiệu</Link>
               </NavItem>
               <NavItem>
-              <NavLink href="/order">Đặt Món</NavLink>
+              <Link to="/order">Đặt Món</Link>
               </NavItem>  
               <NavItem>
-              <NavLink href="/store">Giỏ Hàng</NavLink>
+              <Link to="/store">Giỏ Hàng</Link>
               </NavItem>
           </Nav>
           <NavbarText>
@@ -59,6 +61,13 @@ function App() {
           </NavbarText>
           </Collapse>
       </Navbar>
+      {/* <ul>
+        <li><Link to="/" /></li>
+      </ul> */}
+      <MessengerCustomerChat
+        pageId="101315142049056"
+        appId="127955015818933"
+      />
       </div>
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
@@ -79,8 +88,10 @@ function App() {
             <Home />
           </Route>
         </Switch>
-      
+        
     </Router>
+    
+    </>
   );
 }
 

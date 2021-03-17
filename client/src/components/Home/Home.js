@@ -15,6 +15,7 @@ import iconTime from './assets/icon-time.svg';
 import Carousel from 'react-bootstrap/Carousel'
 import imgBanner1 from './assets/banner_web_1.svg';
 import imgBanner2 from './assets/banner_web_2.svg';
+
 const Home = (props) => {
 
     useEffect(() => {
@@ -155,6 +156,7 @@ const Home = (props) => {
             </div>
         </div>
         <Footer />
+        
         </>
     );
 };

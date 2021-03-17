@@ -6,7 +6,9 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import TabsAll from '../TabsAll/TabsAll';
+import TabsDoAn from '../TabsAll/TabsDoAn';
+import TabsDoUong from '../TabsAll/TabsDoUong';
+import TabsCombo from '../TabsAll/TabsCombo';
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -59,23 +61,19 @@ export default function NavTabs() {
     <div className={classes.root}>
       <AppBar position="static">
         <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
-          <Tab label="All" {...a11yProps(0)} />
-          <Tab label="Đồ ăn" {...a11yProps(1)} />
+          <Tab label="Đồ ăn" {...a11yProps(0)} />
           <Tab label="Đồ uống" {...a11yProps(2)} />
-          <Tab label="Combo" {...a11yProps(3)} />
+          <Tab label="Combo" {...a11yProps(2)} />
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-        <TabsAll />
+        <TabsDoAn />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Đồ ăn
+        <TabsDoUong />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Đồ uống
-      </TabPanel>
-      <TabPanel value={value} index={3}>
-        Combo
+        <TabsCombo />
       </TabPanel>
     </div>
   );
