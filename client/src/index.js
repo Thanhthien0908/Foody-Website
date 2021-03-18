@@ -6,13 +6,15 @@ import 'antd/dist/antd.css';
 import AppRouter from './AppRouter';
 // import App from './components/TrangChu/App';
 import reportWebVitals from './reportWebVitals';
+import {Provider} from 'react-redux';
+import {createStore} from 'redux';
+import product from './reducer/product';
 
-
+const store = createStore(product);
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <AppRouter />
-    
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
 

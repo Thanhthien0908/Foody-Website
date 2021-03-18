@@ -1,0 +1,1 @@
+export const INSERT_PRODUCT = 'INSERT_PRODUCT';

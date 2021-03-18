@@ -1,6 +1,9 @@
 import React,{useState} from 'react';
+import {actInsertProduct} from './../../action/index';
+import {connect} from 'react-redux';
 import './styles.scss';
-const TabsDoAn = () => {
+const TabsDoAn = ({item, onInsertProduct}) => {
+    console.log("store product",item);
     const [dataDoAn, setDataDoAn] = useState([
         {
             urlImg: "https://dscnnwjxnwl3f.cloudfront.net/media/catalog/product/cache/584039753b87a8d227764e04fc461e3e/t/e/teriyaki-burger_4.png",
@@ -63,7 +66,9 @@ const TabsDoAn = () => {
             price: 310000
         }
     ]);
-    console.log(dataDoAn);
+    const insertItem = (item) => {
+        onInsertProduct(item);
+    }   
     return (
         <div>
             <span>Sắp xếp theo giá: <select name="" id="">
@@ -78,7 +83,7 @@ const TabsDoAn = () => {
                             <img src={item.urlImg} alt="order-item"/>
                             <p className="order-item__name">{item.foodName}</p>
                             <p className="order-item__price">{item.price} đ</p>
-                            <center><button className="order-item__btn">Thêm vào giỏ hàng</button></center>
+                            <center><button className="order-item__btn" onClick={() => insertItem(item)}>Thêm vào giỏ hàng</button></center>
                         </div>
                     )
                 }
@@ -87,4 +92,17 @@ const TabsDoAn = () => {
     );
 };
 
-export default TabsDoAn;
+const mapStateToProps = (state) =>{
+    return {
+        item: state
+    }
+}
+const mapDispatchToProps = (dispatch, props) =>{
+    return {
+        onInsertProduct : (item) =>{
+            dispatch(actInsertProduct(item));
+        }
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(TabsDoAn);
