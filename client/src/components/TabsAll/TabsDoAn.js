@@ -1,9 +1,13 @@
 import React,{useState} from 'react';
 import {actInsertProduct} from './../../action/index';
 import {connect} from 'react-redux';
+import { message } from 'antd';
 import './styles.scss';
 const TabsDoAn = ({item, onInsertProduct}) => {
     console.log("store product",item);
+    function formatNumber(num) {
+        return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+    }
     const [dataDoAn, setDataDoAn] = useState([
         {
             urlImg: "https://dscnnwjxnwl3f.cloudfront.net/media/catalog/product/cache/584039753b87a8d227764e04fc461e3e/t/e/teriyaki-burger_4.png",
@@ -68,6 +72,7 @@ const TabsDoAn = ({item, onInsertProduct}) => {
     ]);
     const insertItem = (item) => {
         onInsertProduct(item);
+        message.success('Món ăn đã được thêm vào giỏ hàng !');
     }   
     return (
         <div>
@@ -82,7 +87,7 @@ const TabsDoAn = ({item, onInsertProduct}) => {
                         <div className="col-3 order-item">
                             <img src={item.urlImg} alt="order-item"/>
                             <p className="order-item__name">{item.foodName}</p>
-                            <p className="order-item__price">{item.price} đ</p>
+                            <p className="order-item__price">{formatNumber(item.price)} đ</p>
                             <center><button className="order-item__btn" onClick={() => insertItem(item)}>Thêm vào giỏ hàng</button></center>
                         </div>
                     )

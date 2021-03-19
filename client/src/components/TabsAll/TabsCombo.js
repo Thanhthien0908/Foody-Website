@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
 import {actInsertProduct} from './../../action/index';
 import {connect} from 'react-redux';
+import { message } from 'antd';
 import './styles.scss';
 const TabsCombo = ({item, onInsertProduct}) => {
     const [dataCombo, setdataCombo] = useState([
@@ -61,9 +62,13 @@ const TabsCombo = ({item, onInsertProduct}) => {
         },
         
     ]);
+    function formatNumber(num) {
+        return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+    }
     console.log(dataCombo);
     const insertItem = (item) => {
         onInsertProduct(item);
+        message.success('Combo đã được thêm vào giỏ hàng !');
     } 
     return (
         <div>
@@ -78,7 +83,7 @@ const TabsCombo = ({item, onInsertProduct}) => {
                         <div className="col-3 order-item">
                             <img src={item.urlImg} alt="order-item"/>
                             <p className="order-item__name">{item.comboName}</p>
-                            <p className="order-item__price">{item.price} đ</p>
+                            <p className="order-item__price">{formatNumber(item.price)} đ</p>
                             <center><button className="order-item__btn" onClick={() => insertItem(item)}>Thêm vào giỏ hàng</button></center>
                         </div>
                     )

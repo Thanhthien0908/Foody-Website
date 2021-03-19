@@ -7,6 +7,7 @@ import StoreCard from '../StoreCard/StoreCard';
 import logo from '../Home/assets/logo-foody.svg';
 import iconAvatar from '../Home/assets/img-avatar.svg';
 import MessengerCustomerChat from 'react-messenger-customer-chat';
+import {connect} from 'react-redux';
 import './App.scss';
 import {
   BrowserRouter as Router,
@@ -20,7 +21,7 @@ import {Navbar,NavbarBrand,NavbarToggler,Collapse,Nav,NavItem,NavLink,NavbarText
   DropdownMenu,
   DropdownItem,
 } from 'reactstrap';
-function App() {
+function App({item}) {
   let history = useHistory();
   const onLogout = () => {
     localStorage.removeItem("accessToken");
@@ -44,7 +45,7 @@ function App() {
               <Link to="/order">Đặt Món</Link>
               </NavItem>  
               <NavItem>
-              <Link to="/store">Giỏ Hàng</Link>
+              <Link to="/store">Giỏ Hàng <span class="badge bg-secondary">{item.length}</span></Link>
               </NavItem>
           </Nav>
           <NavbarText>
@@ -94,5 +95,10 @@ function App() {
     </>
   );
 }
+const mapStateToProps = (state) =>{
+  return {
+      item: state
+  }
+}
+export default connect(mapStateToProps,null)(App);
 
-export default App;

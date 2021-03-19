@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
 import {actInsertProduct} from './../../action/index';
 import {connect} from 'react-redux';
+import { message } from 'antd';
 import './styles.scss';
 const TabsDoUong = ({item, onInsertProduct}) => {
     const [dataDoUong, setdataDoUong] = useState([
@@ -66,9 +67,13 @@ const TabsDoUong = ({item, onInsertProduct}) => {
         },
         
     ]);
+    function formatNumber(num) {
+        return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+    }
     console.log(dataDoUong);
     const insertItem = (item) => {
         onInsertProduct(item);
+        message.success('Đồ uống đã được thêm vào giỏ hàng !');
     } 
     return (
         <div>
@@ -83,7 +88,7 @@ const TabsDoUong = ({item, onInsertProduct}) => {
                         <div className="col-3 order-item">
                             <img src={item.urlImg} alt="order-item"/>
                             <p className="order-item__name">{item.drinkName}</p>
-                            <p className="order-item__price">{item.price} đ</p>
+                            <p className="order-item__price">{formatNumber(item.price)} đ</p>
                             <center><button className="order-item__btn" onClick={() => insertItem(item)}>Thêm vào giỏ hàng</button></center>
                         </div>
                     )

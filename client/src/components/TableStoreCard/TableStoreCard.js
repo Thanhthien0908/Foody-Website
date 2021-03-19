@@ -8,7 +8,13 @@ function TableStoreCard({ item }) {
   const moveOrder = () => {
     history.replace("/order")
   }
-
+  const total = item.reduce(
+    ( total, value ) => total + value.price,
+    0
+  );
+  function formatNumber(num) {
+    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+  }
   return (
     <div className="table-responsive">
       <h1><center>Chi Tiết Giỏ Hàng</center></h1>
@@ -36,23 +42,9 @@ function TableStoreCard({ item }) {
                     <strong>{item.foodName}</strong>
                   </h5>
                 </td>
-                <td>{item.price} đ</td>
-                <td className="center-on-small-only">
-                  <span className="qty">3 </span>
-                  <div className="btn-group radio-group" data-toggle="buttons">
-                    <label
-                      className="btn btn-sm btn-primary
-                                      btn-rounded waves-effect waves-light">
-                      <a>—</a>
-                    </label>
-                    <label
-                      className="btn btn-sm btn-primary
-                                      btn-rounded waves-effect waves-light">
-                      <a>+</a>
-                    </label>
-                  </div>
-                </td>
-                <td>300.000đ</td>
+                <td>{formatNumber(item.price)} đ</td>
+                <th>X 1</th>
+                <td>{formatNumber(item.price)} đ</td>
                 <td>
                   <button type="button" className="btn btn-sm btn-danger">
                     X
@@ -77,12 +69,7 @@ function TableStoreCard({ item }) {
             <td>
               <h4>
                 <strong>
-                  {
-                    item.reduce(
-                      ( total, value ) => total + value.price,
-                      0
-                    )
-                    }
+                  {formatNumber(total)} Đ
                 </strong>
               </h4>
             </td>
