@@ -110,7 +110,9 @@ const DanhMucCombo = () => {
         setDataCombo(dataCombo.slice(0,index).concat(dataCombo.slice(index+1)));
         console.log(dataCombo);
     } 
-    
+    function formatNumber(num) {
+        return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+    }
     return (
         <div className="table-responsive">
             <h1>Quản lý danh mục Combo</h1>
@@ -150,7 +152,7 @@ const DanhMucCombo = () => {
                         <th scope="row">{index+1}</th>
                         <th>{item.foodName}</th>
                         <th class="long-term">{item.urlImg}</th>
-                        <th>{item.price}</th>
+                        <th>{formatNumber(item.price)} vnđ</th>
                         <th>{item.type}</th>
                         <th><button className="btn btn-danger" onClick={()=>onDelete(index)}>Xóa</button></th>
                         </tr>

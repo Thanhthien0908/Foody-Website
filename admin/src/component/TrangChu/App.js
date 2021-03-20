@@ -21,7 +21,7 @@ import AccUser from '../AccUser';
 import DanhMucDoAn from '../DanhMucDoAn';
 import DanhMucDoUong from '../DanhMucDoUong';
 import DanhMucCombo from '../DanhMucCombo';
-import QuanLyKho from '../QuanLyKho';
+import QuanDonHang from '../QuanLyKho';
 function App() {
   let history = useHistory();
   const onLogout = () => {
@@ -58,7 +58,7 @@ function App() {
                 </ul>
             </li>
             <li>
-              <Link to="/quan-ly-kho"><img src={iconStore} alt="iconStore"/> Quản lý Kho</Link>
+              <Link to="/quan-ly-don-hang"><img src={iconStore} alt="iconStore"/> Quản lý Đơn Hàng</Link>
             </li>
             <li>
               <Link to="#" onClick={onLogout}><img src={iconLogout} alt="iconLogout"/> Đăng xuất</Link>
@@ -86,8 +86,8 @@ function App() {
             <Route path="/danh-muc-combo">
               <DanhMucCombo />
             </Route>
-            <Route path="/quan-ly-kho">
-              <QuanLyKho />
+            <Route path="/quan-ly-don-hang">
+              <QuanDonHang />
             </Route>
             <Route path="/">
               <OverView />

@@ -117,7 +117,9 @@ const DanhMucDoAn = () => {
         setDataDoAn(dataDoAn.slice(0, index).concat(dataDoAn.slice(index + 1)));
         console.log(dataDoAn);
     }
-
+    function formatNumber(num) {
+        return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+    }
     return (
         <div className="table-responsive">
             <h1>Quản lý danh mục Món ăn</h1>
@@ -158,7 +160,7 @@ const DanhMucDoAn = () => {
                                 <th scope="row">{index + 1}</th>
                                 <th>{item.foodName}</th>
                                 <th class="long-term">{item.urlImg}</th>
-                                <th>{item.price}</th>
+                                <th>{formatNumber(item.price)} vnđ</th>
                                 <th>{item.type}</th>
                                 <th><button className="btn btn-danger" onClick={() => onDelete(index)}>Xóa</button></th>
                             </tr>
