@@ -107,7 +107,7 @@ const DanhMucCombo = () => {
         }
     }
     const onDelete = (index) =>{
-        setDataCombo(dataCombo.splice(0,index).concat(dataCombo.splice(index+1)));
+        setDataCombo(dataCombo.slice(0,index).concat(dataCombo.slice(index+1)));
         console.log(dataCombo);
     } 
     

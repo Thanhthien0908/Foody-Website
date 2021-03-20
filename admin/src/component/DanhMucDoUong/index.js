@@ -113,7 +113,7 @@ const DanhMucDoUong = () => {
         }
     }
     const onDelete = (index) =>{
-        setDataDoUong(dataDouong.splice(0,index).concat(dataDouong.splice(index+1)));
+        setDataDoUong(dataDouong.slice(0,index).concat(dataDouong.slice(index+1)));
         console.log(dataDouong);
     } 
     

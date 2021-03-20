@@ -114,7 +114,7 @@ const DanhMucDoAn = () => {
 
     }
     const onDelete = (index) => {
-        setDataDoAn(dataDoAn.splice(0, index).concat(dataDoAn.splice(index + 1)));
+        setDataDoAn(dataDoAn.slice(0, index).concat(dataDoAn.slice(index + 1)));
         console.log(dataDoAn);
     }
 
