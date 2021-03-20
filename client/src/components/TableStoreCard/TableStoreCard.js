@@ -10,7 +10,7 @@ function TableStoreCard({ item, onDeleteProduct, onDeleteAllProduct }) {
   const moveOrder = () => {
     history.replace("/order")
   }
-  const total = item.reduce(
+  const total = listCart.reduce(
     (total, value) => total + value.price,
     0
   );

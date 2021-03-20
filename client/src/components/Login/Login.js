@@ -9,18 +9,14 @@ import { Redirect, useHistory } from 'react-router-dom';
 import FacebookLogin from 'react-facebook-login';
 const Login = () => {
     let history = useHistory();
-    const [logInFace,setLogInFace] = useState("");
     const responseFacebook = (response) => {
-        setLogInFace(response.accessToken)
+        // setLogInFace(response.accessToken)
+        console.log(response);
     }
-    console.log("access",logInFace);
     const onLogin = () => {
         const userName = document.getElementById('userName').value;
         const passWord = document.getElementById('passWord').value;
         if (userName === "thiennt" && passWord === "123456") {
-            localStorage.setItem("accessToken", true);
-            history.replace("/");
-        }else if(logInFace != " "){
             localStorage.setItem("accessToken", true);
             history.replace("/");
         }else {

@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react';
+import React, { useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.scss';
 import AOS from "aos";
@@ -15,45 +15,46 @@ import iconTime from './assets/icon-time.svg';
 import Carousel from 'react-bootstrap/Carousel'
 import imgBanner1 from './assets/banner_web_1.svg';
 import imgBanner2 from './assets/banner_web_2.svg';
+import imgMessenger from './assets/img-messager.svg'
 import MessengerCustomerChat from 'react-messenger-customer-chat';
 
 const Home = (props) => {
 
     useEffect(() => {
         AOS.init({
-        offset: 200,
-        delay: 0,
-        duration: 1000,
+            offset: 200,
+            delay: 0,
+            duration: 1000,
         });
-        }, []);
+    }, []);
     return (<>
         <Carousel>
             <Carousel.Item interval={1000}>
                 <img
-                className="d-block w-100"
-                src={imgBanner2}
-                alt="First slide"
+                    className="d-block w-100"
+                    src={imgBanner2}
+                    alt="First slide"
                 />
             </Carousel.Item>
             <Carousel.Item interval={500}>
                 <img
-                className="d-block w-100"
-                src={imgBanner1}
-                alt="Second slide"
+                    className="d-block w-100"
+                    src={imgBanner1}
+                    alt="Second slide"
                 />
             </Carousel.Item>
             <Carousel.Item>
                 <img
-                className="d-block w-100"
-                src={imgBanner2}
-                alt="Third slide"
+                    className="d-block w-100"
+                    src={imgBanner2}
+                    alt="Third slide"
                 />
             </Carousel.Item>
         </Carousel>
         <div className="introduce">
-            <img src={Logo} alt="logo"/>
+            <img src={Logo} alt="logo" />
             <h1 className="introduce__title">Giới thiệu về chúng tôi</h1>
-            <img src={imgLogo} alt="bigLogo"/>
+            <img src={imgLogo} alt="bigLogo" />
             <div className="container introduce__content" data-aos="fade-up">
                 <p>Foody là chuỗi nhà hàng thức ăn nhanh trực thuộc tập đoàn Foody – một trong năm tập đoàn lớn nhất Hàn Quốc. Suốt 7 năm liền đứng vị trí số 1 về “Brand Power”, được cấp bởi “ Korea Management Association”, và được chọn là vị trí số 1 về năng lực cạnh tranh thương hiệu với danh hiệu “Brand Stock” của cơ quan đánh giá giá trị thương hiệu.</p>
                 <br />
@@ -71,7 +72,7 @@ const Home = (props) => {
             <div className="container">
                 <div className="row">
                     <div className="col" data-aos="fade-right">
-                        <img src={imgMaxim} alt="imgMaxim"/>
+                        <img src={imgMaxim} alt="imgMaxim" />
                     </div>
                     <div className="col" data-aos="fade-left">
                         <div className="row row-top">
@@ -81,7 +82,7 @@ const Home = (props) => {
                                         01
                                     </div>
                                     <div className="col-5">
-                                        <img src={iconStory} alt="img-story"/>
+                                        <img src={iconStory} alt="img-story" />
                                     </div>
                                 </div>
                                 <div className="row maxim-item__description">
@@ -95,7 +96,7 @@ const Home = (props) => {
                                         02
                                     </div>
                                     <div className="col-5">
-                                        <img src={iconServices} alt="img-story"/>
+                                        <img src={iconServices} alt="img-story" />
                                     </div>
                                 </div>
                                 <div className="row maxim-item__description">
@@ -105,13 +106,13 @@ const Home = (props) => {
                             </div>
                         </div>
                         <div className="row">
-                        <div className="col bg-maxim-item">
+                            <div className="col bg-maxim-item">
                                 <div className="row maxim-item">
                                     <div className="col-7 maxim-item__index">
                                         03
                                     </div>
                                     <div className="col-5">
-                                        <img src={iconProtect} alt="img-story"/>
+                                        <img src={iconProtect} alt="img-story" />
                                     </div>
                                 </div>
                                 <div className="row maxim-item__description">
@@ -125,7 +126,7 @@ const Home = (props) => {
                                         04
                                     </div>
                                     <div className="col-5">
-                                        <img src={iconTime} alt="img-story"/>
+                                        <img src={iconTime} alt="img-story" />
                                     </div>
                                 </div>
                                 <div className="row maxim-item__description">
@@ -143,26 +144,26 @@ const Home = (props) => {
             <div className="container">
                 <div className="row">
                     <div className="col" data-aos="fade-right">
-                        <img src={imgAddress} alt="img-address"/>
+                        <img src={imgAddress} alt="img-address" />
                     </div>
                     <div className="col" data-aos="fade-left">
-                            <h2 className="address__content">Foody</h2>
-                            <p>Địa chỉ: Tầng 1, Toà nhà Kangnam Mỹ Đình</p>
-                            <p>Khu E6 Đô thị mới Cầu Giấy, Phạm Hùng, Mễ Trì, Nam Từ Liêm, Hà Nội</p>
-                            <p>Tel: (84-8) 345000921</p>
-                            <p>Fax: (84-8) 345000921</p>
-                            <p>Email: thanhthien09081999@gmail.vn</p>
+                        <h2 className="address__content">Foody</h2>
+                        <p>Địa chỉ: Tầng 1, Toà nhà Kangnam Mỹ Đình</p>
+                        <p>Khu E6 Đô thị mới Cầu Giấy, Phạm Hùng, Mễ Trì, Nam Từ Liêm, Hà Nội</p>
+                        <p>Tel: (84-8) 345000921</p>
+                        <p>Fax: (84-8) 345000921</p>
+                        <p>Email: thanhthien09081999@gmail.vn</p>
                     </div>
                 </div>
             </div>
         </div>
         <Footer />
-        
-        <MessengerCustomerChat
-        pageId="101315142049056"
-        appId="127955015818933"
-      />
-        </>
+        {/* <MessengerCustomerChat
+            pageId="101315142049056"
+            appId="127955015818933"
+        /> */}
+        <a href="https://www.facebook.com/messages/t/101315142049056" className="img-mess"><img src={imgMessenger} alt="img-mess"/></a>
+    </>
     );
 };
 
