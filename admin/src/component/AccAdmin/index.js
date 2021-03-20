@@ -45,7 +45,7 @@ const AccAdmin = () => {
         })
     }
     const onDelete = (index) =>{
-        setDataAccAdmin(dataAccAdmin.splice(0,index).concat(dataAccAdmin.splice(index+1)));
+        setDataAccAdmin(dataAccAdmin.slice(0,index).concat(dataAccAdmin.slice(index+1)));
         console.log(dataAccAdmin);
     } 
     

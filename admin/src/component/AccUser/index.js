@@ -45,7 +45,7 @@ const AccUser = () => {
         })
     }
     const onDelete = (index) =>{
-        setDataAccUser(dataAccUser.splice(0,index).concat(dataAccUser.splice(index+1)));
+        setDataAccUser(dataAccUser.slice(0,index).concat(dataAccUser.slice(index+1)));
         console.log(dataAccUser);
     } 
     
