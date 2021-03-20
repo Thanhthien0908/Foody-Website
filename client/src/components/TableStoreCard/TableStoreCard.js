@@ -1,24 +1,48 @@
-import React from 'react';
-import orderItem from '../TabsAll/assets/order-item.svg';
+import React, { useState } from 'react';
 import './styles.scss';
 import { useHistory } from 'react-router-dom';
-import { actDeleteProduct } from '../../action/index';
+import { actDeleteProduct, actDeleteAllProduct } from '../../action/index';
 import { connect } from 'react-redux';
-function TableStoreCard({ item, onDeleteProduct }) {
+import { Modal, message, Form, Input } from 'antd';
+function TableStoreCard({ item, onDeleteProduct, onDeleteAllProduct }) {
   let history = useHistory();
   const moveOrder = () => {
     history.replace("/order")
   }
   const total = item.reduce(
-    ( total, value ) => total + value.price,
+    (total, value) => total + value.price,
     0
   );
-  const onDelete = (id) =>{
+  const onDelete = (id) => {
     onDeleteProduct(id);
-  } 
+  }
   function formatNumber(num) {
     return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
   }
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const showModal = () => {
+    if (item.length !== 0) {
+      setIsModalVisible(true);
+    } else {
+      setIsModalVisible(false);
+    }
+  };
+
+  const handleOk = () => {
+    let username = document.getElementById("username").value;
+    let phone = document.getElementById("phone").value;
+    let address = document.getElementById("address").value;
+    if (username !== "" && phone !== "" && address !== "") {
+      setIsModalVisible(false);
+      onDeleteAllProduct();
+      message.success('Đã xác nhận người nhận !');
+    }
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
   return (
     <div className="table-responsive">
       <h1><center>Chi Tiết Giỏ Hàng</center></h1>
@@ -78,9 +102,22 @@ function TableStoreCard({ item, onDeleteProduct }) {
               </h4>
             </td>
             <td colSpan={3}>
-              <button type="button" className="btn btn-success">Thực hiện thanh toán &#8250;
+              <button type="button" className="btn btn-success" onClick={showModal}>Thực hiện thanh toán &#8250;
                 <i className="fa fa-angle-right right" />
               </button>
+              <Modal title="Xác nhận thông tin người nhận !" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+                <Form layout='vertical' >
+                  <Form.Item name="username" label='Tên người nhận:' rules={[{ required: true, message: 'Số tiền đóng thêm không được để trống' }]}>
+                    <Input id="username" style={{ width: '100%' }} />
+                  </Form.Item>
+                  <Form.Item name="phonenumber" label='Số điện thoại người nhận:' rules={[{ required: true, message: 'Số tiền đóng thêm không được để trống' }]}>
+                    <Input id="phone" style={{ width: '100%' }} />
+                  </Form.Item>
+                  <Form.Item name="address" label='Địa chỉ người nhận:' rules={[{ required: true, message: 'Số tiền đóng thêm không được để trống' }]}>
+                    <Input id="address" style={{ width: '100%' }} />
+                  </Form.Item>
+                </Form>
+              </Modal>
             </td>
           </tr>
         </tbody>
@@ -93,11 +130,14 @@ const mapStateToProps = (state) => {
     item: state
   }
 }
-const mapDispatchToProps = (dispatch, props) =>{
+const mapDispatchToProps = (dispatch, props) => {
   return {
-      onDeleteProduct : (id) =>{
-          dispatch(actDeleteProduct(id));
-      }
+    onDeleteProduct: (id) => {
+      dispatch(actDeleteProduct(id));
+    },
+    onDeleteAllProduct: () => {
+      dispatch(actDeleteAllProduct());
+    }
   }
 }
 

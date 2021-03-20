@@ -1,2 +1,3 @@
 export const INSERT_PRODUCT = 'INSERT_PRODUCT';
 export const DELETE_PRODUCT = 'DELETE_PRODUCT';
+export const DELETE_ALL = 'DELETE_ALL';

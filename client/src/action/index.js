@@ -11,3 +11,8 @@ export const actDeleteProduct = (id) =>{
         id
     }
 }
+export const actDeleteAllProduct = () =>{
+    return {
+        type: Types.DELETE_ALL
+    }
+}

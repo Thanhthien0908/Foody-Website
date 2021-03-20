@@ -7,6 +7,9 @@ const product = ( state = initialState,action)=>{
             return [...state,action.item];
         case Types.DELETE_PRODUCT:
             return state.slice(0,action.id).concat(state.slice(action.id+1));
+        case Types.DELETE_ALL:
+            state = [];
+            return state;
         default: return state;
     }
 }
