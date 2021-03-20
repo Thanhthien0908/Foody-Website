@@ -9,7 +9,6 @@ import { connect } from 'react-redux';
 import { Redirect, useHistory } from 'react-router-dom';
 
 const Login = ({ acc }) => {
-    console.log(acc);
     let history = useHistory();
     const onLogin = () => {
         const userName = document.getElementById('userName').value;

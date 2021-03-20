@@ -1,22 +1,10 @@
 import React,{useState} from 'react';
 import './styles.scss';
-
-const AccAdmin = () => {
+import {actInsertProduct, actDeleteProduct} from './../../action/index';
+import { connect } from 'react-redux';
+const AccAdmin = ({acc, onInsertAcc, onDeleteAcc}) => {
+    console.log(acc);
     const [openForm, setopenForm] = useState(false);
-    const [dataAccAdmin, setDataAccAdmin] = useState([
-        {
-            username: "thiennt",
-            pass: "1234",
-            sdt: "0345000921",
-            address: "HN"
-        },
-        {
-            username: "thienNguyen",
-            pass: "123456",
-            sdt: "0345000921",
-            address: "HN"
-        }
-    ]);
     const [objItems, setobjItems] = useState({
         username: '',
         pass: '',
@@ -34,9 +22,7 @@ const AccAdmin = () => {
     }
     const onSubmit = (e) =>{
         e.preventDefault();
-        setDataAccAdmin([...dataAccAdmin,objItems]);
-        // console.log(dataAccAdmin);
-        // localStorage.setItem("accAdmin",JSON.stringify(dataAccAdmin));
+        onInsertAcc(objItems);
         setobjItems({
             username: '',
             pass: '',
@@ -45,8 +31,8 @@ const AccAdmin = () => {
         })
     }
     const onDelete = (index) =>{
-        setDataAccAdmin(dataAccAdmin.slice(0,index).concat(dataAccAdmin.slice(index+1)));
-        console.log(dataAccAdmin);
+        // setDataAccAdmin();
+        onDeleteAcc(index);
     } 
     
     return (
@@ -54,7 +40,6 @@ const AccAdmin = () => {
             <h1>Quản lý tài khoản Admins</h1>
             <button className="btn btn-success" onClick={showForm}>Thêm tài khoản</button>
             {/* <Form className={openForm ? "openForm" : "hideForm"}> */}
-               
             <form onSubmit={onSubmit} className={openForm ? "openForm" : "hideForm"}>
                 <label className="label-input" for="fname">UserName : </label><br />
                 <input className="inputForm" type="text" name="username" value={objItems.username} onChange={onChange}/><br />
@@ -79,7 +64,7 @@ const AccAdmin = () => {
                 </tr>
             </thead>
             <tbody>
-                {dataAccAdmin.map((item,index) => {
+                {acc.map((item,index) => {
                     return (
                         <tr>
                         <th scope="row">{index+1}</th>
@@ -96,5 +81,20 @@ const AccAdmin = () => {
         </div>
     );
 };
+const mapStateToProps = (state) => {
+    return {
+        acc: state
+    }
+}
+const mapDispatchToProps = (dispatch, props) =>{
+    return {
+        onInsertAcc : (item) =>{
+            dispatch(actInsertProduct(item));
+        },
+        onDeleteAcc : (id) =>{
+            dispatch(actDeleteProduct(id));
+        }
+    }
+}
 
-export default AccAdmin;
+export default connect(mapStateToProps, mapDispatchToProps)(AccAdmin);
