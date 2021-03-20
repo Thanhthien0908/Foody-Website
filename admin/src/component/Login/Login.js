@@ -13,7 +13,8 @@ const Login = ({ acc }) => {
     const onLogin = () => {
         const userName = document.getElementById('userName').value;
         const passWord = document.getElementById('passWord').value;
-        const haveAcc = acc.some((value) => value.username == userName && value.pass == passWord);
+        const listAcc = JSON.parse(localStorage.getItem("Account"));
+        const haveAcc = listAcc.some((value) => value.username == userName && value.pass == passWord);
         if (haveAcc) {
             localStorage.setItem("accessToken", true);
             history.replace("/");
@@ -57,7 +58,7 @@ const Login = ({ acc }) => {
                 <table className="screen-login__button__group">
                     <tr>
                         <td><button className="screen-login__button__login" data-aos="fade-right" onClick={onLogin}>Login</button></td>
-                        <td><button className="screen-login__button__register" data-aos="fade-left" onClick={moveRegister}>Register</button></td>
+                        {/* <td><button className="screen-login__button__register" data-aos="fade-left" onClick={moveRegister}>Register</button></td> */}
                     </tr>
                 </table>
             </div>

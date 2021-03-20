@@ -3,7 +3,8 @@ import './styles.scss';
 import {actInsertProduct, actDeleteProduct} from './../../action/index';
 import { connect } from 'react-redux';
 const AccAdmin = ({acc, onInsertAcc, onDeleteAcc}) => {
-    console.log(acc);
+    const listAcc = JSON.parse(localStorage.getItem("Account"));
+    console.log(listAcc);
     const [openForm, setopenForm] = useState(false);
     const [objItems, setobjItems] = useState({
         username: '',
@@ -31,7 +32,6 @@ const AccAdmin = ({acc, onInsertAcc, onDeleteAcc}) => {
         })
     }
     const onDelete = (index) =>{
-        // setDataAccAdmin();
         onDeleteAcc(index);
     } 
     
@@ -64,7 +64,7 @@ const AccAdmin = ({acc, onInsertAcc, onDeleteAcc}) => {
                 </tr>
             </thead>
             <tbody>
-                {acc.map((item,index) => {
+                {listAcc.map((item,index) => {
                     return (
                         <tr>
                         <th scope="row">{index+1}</th>
