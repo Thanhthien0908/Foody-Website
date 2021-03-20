@@ -1,21 +1,24 @@
-import React,{useEffect} from 'react';
+import React, { useEffect } from 'react';
 import './style.scss'
 import iconUser from './assets/icon-user.svg'
 import iconUnlock from './assets/icon-unlock.svg'
 import AOS from "aos";
 import "aos/dist/aos.css";
-import {Modal} from 'antd';
-import {Redirect, useHistory} from 'react-router-dom';
+import { Modal } from 'antd';
+import { connect } from 'react-redux';
+import { Redirect, useHistory } from 'react-router-dom';
 
-const Login = () => {
+const Login = ({ acc }) => {
+    console.log(acc);
     let history = useHistory();
     const onLogin = () => {
         const userName = document.getElementById('userName').value;
         const passWord = document.getElementById('passWord').value;
-        if(userName === "thiennt" && passWord === "123456"){
+        const haveAcc = acc.some((value) => value.username == userName && value.pass == passWord);
+        if (haveAcc) {
             localStorage.setItem("accessToken", true);
-            history.replace("/"); 
-        }else{
+            history.replace("/");
+        } else {
             Modal.error({
                 title: 'Đăng nhập thất bại !',
                 content: 'Tên tài khoản hoặc mật khẩu không đúng ? ',
@@ -27,27 +30,27 @@ const Login = () => {
     }
     useEffect(() => {
         AOS.init({
-        offset: 200,
-        delay: 0,
-        duration: 1000,
+            offset: 200,
+            delay: 0,
+            duration: 1000,
         });
-        }, []);
+    }, []);
     return (
         <div className="screen-login">
             <div className="screen-login__title">Foody Login</div>
             <div className="screen-login__user" data-aos="fade-right">
                 <table className="screen-login__user__group">
                     <tr>
-                        <td><input className="screen-login__user__input" type="text" id="userName" placeholder="Tên đăng nhập"/></td>
-                        <td><img className="screen-login__user__icon" src={iconUser} alt="icon_user"/></td>
+                        <td><input className="screen-login__user__input" type="text" id="userName" placeholder="Tên đăng nhập" /></td>
+                        <td><img className="screen-login__user__icon" src={iconUser} alt="icon_user" /></td>
                     </tr>
                 </table>
             </div>
             <div className="screen-login__lock" data-aos="fade-left">
                 <table className="screen-login__lock__group">
                     <tr>
-                        <td><input className="screen-login__lock__input" type="password" id="passWord" placeholder="Mật Khẩu"/></td>
-                        <td><img className="screen-login__lock__icon" src={iconUnlock} alt="icon_password"/></td>
+                        <td><input className="screen-login__lock__input" type="password" id="passWord" placeholder="Mật Khẩu" /></td>
+                        <td><img className="screen-login__lock__icon" src={iconUnlock} alt="icon_password" /></td>
                     </tr>
                 </table>
             </div>
@@ -65,4 +68,9 @@ const Login = () => {
         </div>
     );
 };
-export default Login;
+const mapStateToProps = (state) => {
+    return {
+        acc: state
+    }
+}
+export default connect(mapStateToProps, null)(Login);

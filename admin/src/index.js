@@ -1,17 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './component/TrangChu/App';
-// import Login from './component/Login/Login';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'antd/dist/antd.css';
 import reportWebVitals from './reportWebVitals';
 import AppRouter from './AppRouter';
-
+import {Provider} from 'react-redux';
+import {createStore} from 'redux';
+import acc from './reducer/acc';
+const store = createStore(acc);
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <AppRouter />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
 
