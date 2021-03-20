@@ -5,6 +5,7 @@ import { actDeleteProduct, actDeleteAllProduct } from '../../action/index';
 import { connect } from 'react-redux';
 import { Modal, message, Form, Input } from 'antd';
 function TableStoreCard({ item, onDeleteProduct, onDeleteAllProduct }) {
+  const listCart = JSON.parse(localStorage.getItem("GioHang"));
   let history = useHistory();
   const moveOrder = () => {
     history.replace("/order")
@@ -60,7 +61,7 @@ function TableStoreCard({ item, onDeleteProduct, onDeleteAllProduct }) {
         </thead>
         <tbody>
           {
-            item.map((item, index) =>
+            listCart.map((item, index) =>
               <tr>
                 <th scope="row">
                   <img src={item.urlImg} alt="item.product.name" />

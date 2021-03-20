@@ -22,6 +22,7 @@ import {Navbar,NavbarBrand,NavbarToggler,Collapse,Nav,NavItem,NavLink,NavbarText
   DropdownItem,
 } from 'reactstrap';
 function App({item}) {
+  const listCart = JSON.parse(localStorage.getItem("GioHang"));
   let history = useHistory();
   const onLogout = () => {
     localStorage.removeItem("accessToken");
@@ -45,7 +46,7 @@ function App({item}) {
               <Link to="/order">Đặt Món</Link>
               </NavItem>  
               <NavItem>
-              <Link to="/store">Giỏ Hàng <span class="badge bg-secondary">{item.length}</span></Link>
+              <Link to="/store">Giỏ Hàng <span class="badge bg-secondary">{listCart.length}</span></Link>
               </NavItem>
           </Nav>
           <NavbarText>
