@@ -2,8 +2,9 @@ import React from 'react';
 import orderItem from '../TabsAll/assets/order-item.svg';
 import './styles.scss';
 import { useHistory } from 'react-router-dom';
+import { actDeleteProduct } from '../../action/index';
 import { connect } from 'react-redux';
-function TableStoreCard({ item }) {
+function TableStoreCard({ item, onDeleteProduct }) {
   let history = useHistory();
   const moveOrder = () => {
     history.replace("/order")
@@ -12,6 +13,9 @@ function TableStoreCard({ item }) {
     ( total, value ) => total + value.price,
     0
   );
+  const onDelete = (id) =>{
+    onDeleteProduct(id);
+  } 
   function formatNumber(num) {
     return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
   }
@@ -46,7 +50,7 @@ function TableStoreCard({ item }) {
                 <th>X 1</th>
                 <td>{formatNumber(item.price)} đ</td>
                 <td>
-                  <button type="button" className="btn btn-sm btn-danger">
+                  <button type="button" className="btn btn-sm btn-danger" onClick={() => onDelete(index)}>
                     X
               </button>
                 </td>
@@ -89,4 +93,12 @@ const mapStateToProps = (state) => {
     item: state
   }
 }
-export default connect(mapStateToProps, null)(TableStoreCard);
+const mapDispatchToProps = (dispatch, props) =>{
+  return {
+      onDeleteProduct : (id) =>{
+          dispatch(actDeleteProduct(id));
+      }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TableStoreCard);

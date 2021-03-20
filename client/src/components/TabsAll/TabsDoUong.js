@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import { message } from 'antd';
 import './styles.scss';
 const TabsDoUong = ({item, onInsertProduct}) => {
-    const [dataDoUong, setdataDoUong] = useState([
+    const [dataDoUong, setDataDoUong] = useState([
         {
             urlImg: "https://dscnnwjxnwl3f.cloudfront.net/media/catalog/product/cache/584039753b87a8d227764e04fc461e3e/o/r/orangejuice_4.png",
             foodName: "Nước Cam",
@@ -70,18 +70,29 @@ const TabsDoUong = ({item, onInsertProduct}) => {
     function formatNumber(num) {
         return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
     }
-    console.log(dataDoUong);
     const insertItem = (item) => {
         onInsertProduct(item);
         message.success('Đồ uống đã được thêm vào giỏ hàng !');
     } 
+    const handleChange = (e) =>{   
+        let currentOption = e.target.value;
+        if(currentOption === "up"){
+            setDataDoUong([...dataDoUong.sort((a, b) => a.price - b.price)])
+            
+        }else{
+            setDataDoUong([...dataDoUong.sort((a, b) => b.price - a.price)])
+        }
+    }
     return (
         <div>
-            <span>Sắp xếp theo giá: <select name="" id="">
-                <option value="">Giá từ thấp tới cao</option>
-                <option value="">Giá từ cao xuống thấp</option>
+            <span className="title-filter">Sắp xếp theo giá</span> <select onChange={handleChange}>
+                <option value="" 
+                >-- Chọn Sắp Xếp Theo Giá --</option>
+                <option value="up" 
+                >-- Giá từ thấp tới cao --</option>
+                <option value="down" 
+                >-- Giá từ cao xuống thấp --</option>
                 </select>
-            </span>
             <div className="row">
                 {
                     dataDoUong.map((item,index) =>

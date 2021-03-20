@@ -74,13 +74,25 @@ const TabsDoAn = ({item, onInsertProduct}) => {
         onInsertProduct(item);
         message.success('Món ăn đã được thêm vào giỏ hàng !');
     }   
+    const handleChange = (e) =>{   
+        let currentOption = e.target.value;
+        if(currentOption === "up"){
+            setDataDoAn([...dataDoAn.sort((a, b) => a.price - b.price)])
+            
+        }else{
+            setDataDoAn([...dataDoAn.sort((a, b) => b.price - a.price)])
+        }
+    }
     return (
         <div>
-            <span>Sắp xếp theo giá: <select name="" id="">
-                <option value="">Giá từ thấp tới cao</option>
-                <option value="">Giá từ cao xuống thấp</option>
+            <span className="title-filter">Sắp xếp theo giá</span> <select onChange={handleChange}>
+            <option value="" 
+                >-- Chọn Sắp Xếp Theo Giá --</option>
+                <option value="up" 
+                >-- Giá từ thấp tới cao --</option>
+                <option value="down" 
+                >-- Giá từ cao xuống thấp --</option>
                 </select>
-            </span>
             <div className="row">
                 {
                     dataDoAn.map((item,index) =>

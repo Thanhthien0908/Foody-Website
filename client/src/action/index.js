@@ -5,3 +5,9 @@ export const actInsertProduct = (item) =>{
         item
     }
 }
+export const actDeleteProduct = (id) =>{
+    return {
+        type: Types.DELETE_PRODUCT,
+        id
+    }
+}
