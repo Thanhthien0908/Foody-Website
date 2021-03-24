@@ -1,4 +1,6 @@
+import { combineReducers } from 'redux'
 import * as Types from './../const/actionType';
+
 const initialState = [];
 const product = (state = initialState, action) => {
 
@@ -19,4 +21,4 @@ const product = (state = initialState, action) => {
     }
 }
 
-export default product;
+export default combineReducers({ product })

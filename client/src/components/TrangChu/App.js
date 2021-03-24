@@ -46,7 +46,7 @@ function App({item}) {
               <Link to="/order">Đặt Món</Link>
               </NavItem>  
               <NavItem>
-              <Link to="/store">Giỏ Hàng <span class="badge bg-secondary">{listCart.length}</span></Link>
+              <Link to="/store">Giỏ Hàng <span class="badge bg-secondary">{listCart?.length}</span></Link>
               </NavItem>
           </Nav>
           <NavbarText>

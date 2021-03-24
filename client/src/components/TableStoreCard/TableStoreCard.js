@@ -10,15 +10,15 @@ function TableStoreCard({ item, onDeleteProduct, onDeleteAllProduct }) {
   const moveOrder = () => {
     history.replace("/order")
   }
-  const total = listCart.reduce(
+  const total = listCart?.reduce(
     (total, value) => total + value.price,
-    0
+    0 ?? 0
   );
   const onDelete = (id) => {
     onDeleteProduct(id);
   }
   function formatNumber(num) {
-    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+    return typeof num === String ? num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') : '0'
   }
   const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -61,7 +61,7 @@ function TableStoreCard({ item, onDeleteProduct, onDeleteAllProduct }) {
         </thead>
         <tbody>
           {
-            listCart.map((item, index) =>
+            listCart?.map((item, index) =>
               <tr>
                 <th scope="row">
                   <img src={item.urlImg} alt="item.product.name" />
