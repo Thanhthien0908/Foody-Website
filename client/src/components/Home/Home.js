@@ -158,11 +158,11 @@ const Home = (props) => {
             </div>
         </div>
         <Footer />
-        {/* <MessengerCustomerChat
+         <MessengerCustomerChat
             pageId="101315142049056"
             appId="127955015818933"
-        /> */}
-        <a href="https://www.facebook.com/messages/t/101315142049056" className="img-mess"><img src={imgMessenger} alt="img-mess"/></a>
+        /> 
+        {/* <a href="https://www.facebook.com/messages/t/101315142049056" className="img-mess"><img src={imgMessenger} alt="img-mess"/></a> */}
     </>
     );
 };
