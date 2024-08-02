@@ -3,6 +3,10 @@ select{
     border:none;
 }
 .order-item{
+    margin-bottom: 50px;
+    & img {
+        padding-left: 50px;
+    }
     &__name{
         font-weight: bold;
         text-align: center;
